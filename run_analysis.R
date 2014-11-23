@@ -1,4 +1,4 @@
-
+# 2014
 setwd("/Users/ngushue/Desktop/Coursera/cleaning/UCI HAR Dataset");
 features     <- read.table("./features.txt",header=FALSE); 
 activityType <- read.table("./activity_labels.txt",header=FALSE); 
@@ -27,7 +27,7 @@ finalData <- rbind(trainingData,testData);
 
 colNames  <- colnames(finalData); 
 
-logicalVector <- (grepl("activity..",colNames) | grepl("subject..",colNames) | grepl("-mean..",colNames) & !grepl("-meanFreq..",colNames) & !grepl("mean..-",colNames) | grepl("-std..",colNames) & !grepl("-std()..-",colNames));
+logicalVector <- (grepl("activity..",colNames) | grepl("subject..",colNames) | grepl("-mean..",colNames) & !grepl("-meanFreq..",colNames) & !grepl("mean..-",colNames));
 
 finalData <- finalData[logicalVector==TRUE];
 
@@ -38,7 +38,6 @@ colNames  <- colnames(finalData);
 for (i in 1:length(colNames)) 
 {
     colNames[i] <- gsub("\\()","",colNames[i])
-    colNames[i] <- gsub("-std$","StdDev",colNames[i])
     colNames[i] <- gsub("-mean","Mean",colNames[i])
     colNames[i] <- gsub("^(t)","time",colNames[i])
     colNames[i] <- gsub("^(f)","freq",colNames[i])
