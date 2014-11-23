@@ -1,4 +1,4 @@
-# 2014
+# 2014. some content from Eric.  Thanks for the Regex!!
 setwd("/Users/ngushue/Desktop/Coursera/cleaning/UCI HAR Dataset");
 features     <- read.table("./features.txt",header=FALSE); 
 activityType <- read.table("./activity_labels.txt",header=FALSE); 
